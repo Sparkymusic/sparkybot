@@ -114,7 +114,7 @@ async def _(event):
 
     await send_message.edit(result, parse_mode="html") 
     
- @run_async
+ 
 def gettime(update: Update, context: CallbackContext):
     message = update.effective_message
 
