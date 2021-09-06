@@ -354,7 +354,12 @@ async def inuka(client, message):
         return
 
 
-__help__ = """
+__help__ = """ 
+
+*Admins only:*
+ ✪ `/addchat`*:* Enables Chatbot mode in the chat.
+ ✪ `/rmchat`*:* Disables Chatbot mode in the chat.
+Reports bugs at @{SUPPORT_CHAT}
 <b> Chatbot </b>
 SPARKY 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
  - /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
@@ -362,4 +367,4 @@ SPARKY 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
  
 """
 
-__mod_name__ = "ᴄʜᴀᴛʙᴏᴛ"
+__mod_name__ = "ᴄʜᴀᴛʙᴏx"
