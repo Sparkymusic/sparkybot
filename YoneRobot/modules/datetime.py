@@ -109,13 +109,54 @@ async def _(event):
         )
         return
 
-    await send_message.edit(result, parse_mode="html")
+    await send_message.edit(result, parse_mode="html") 
+    
+ @run_async
+def gettime(update: Update, context: CallbackContext):
+    message = update.effective_message
+
+    try:
+        query = message.text.strip().split(" ", 1)[1]
+    except:
+        message.reply_text("Provide a country name/abbreviation/timezone to find.")
+        return
+    send_message = message.reply_text(
+        f"Finding timezone info for <b>{query}</b>", parse_mode=ParseMode.HTML
+    )
+
+    query_timezone = query.lower()
+    if len(query_timezone) == 2:
+        result = generate_time(query_timezone, ["countryCode"])
+    else:
+        result = generate_time(query_timezone, ["zoneName", "countryName"])
+
+    if not result:
+        send_message.edit_text(
+            f"Timezone info not available for <b>{query}</b>\n"
+            '<b>All Timezones:</b> <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">List here</a>',
+            parse_mode=ParseMode.HTML,
+            disable_web_page_preview=True,
+        )
+        return
+
+    send_message.edit_text(
+        result, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+    )
+
+
+TIME_HANDLER = DisableAbleCommandHandler("time", gettime)
+
+dispatcher.add_handler(TIME_HANDLER)
+
 
 
 
 
 __mod_name__ = "ᴅᴀᴛᴇ ᴛɪᴍᴇ"
-__help__ = """
+__help__ = """Use This Commend to watch country time in chat 
+ ❍ /time (country name)
  - /datetime <timezone>: Get the present date and time information
 **You can check out this [link](https://timezonedb.com/time-zones) for the available timezones**
-"""
+""" 
+__command_list__ = ["time"]
+__handlers__ = [TIME_HANDLER]
