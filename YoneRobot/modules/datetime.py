@@ -4,7 +4,7 @@ import datetime
 from typing import List
 
 import requests
-
+from YoneRobot import TIME_API_KEY, dispatcher
 from YoneRobot.events import register
 from YoneRobot import tbot
 from telethon import types
