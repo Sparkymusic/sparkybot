@@ -9,7 +9,10 @@ from YoneRobot.events import register
 from YoneRobot import tbot
 from telethon import types
 from telethon.tl import functions
-from YoneRobot.conf import get_str_key
+from YoneRobot.conf import get_str_key 
+from YoneRobot.modules.disable import DisableAbleCommandHandler
+from telegram import ParseMode, Update
+from telegram.ext import CallbackContext, run_async
 
 
 TIME_API_KEY = get_str_key("TIME_API_KEY", required=False)
