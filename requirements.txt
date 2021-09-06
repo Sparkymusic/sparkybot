@@ -38,7 +38,7 @@ cachetools
 ujson
 pretty_errors
 TgCrypto
-Pyrogram
+Pyrogram==1.1.13
 youtube-dl
 youtube_search_python
 youtube_search
@@ -70,5 +70,6 @@ fontTools
 loguru 
 glitch_this
 NumPy
-opencv-python-headless
+opencv-python-headless 
+aiogram
 
