@@ -6,7 +6,7 @@ from typing import List
 import requests
 
 from YoneRobot.events import register
-from YoneRobot.services.telethon import tbot
+from YoneRobot import tbot
 from telethon import types
 from telethon.tl import functions
 from YoneRobot.conf import get_str_key
