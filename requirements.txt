@@ -37,7 +37,7 @@ pyrate-limiter
 cachetools
 ujson
 pretty_errors
-TgCrypto
+tgCrypto>=1.2.2
 Pyrogram==1.1.13
 youtube-dl
 youtube_search_python
