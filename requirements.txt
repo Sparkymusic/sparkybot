@@ -67,5 +67,8 @@ nudepy
 motor
 cloudscraper 
 fontTools 
-loguru
+loguru 
+glitch_this
+NumPy
+opencv-python-headless
 
