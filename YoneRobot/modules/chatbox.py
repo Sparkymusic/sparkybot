@@ -275,7 +275,7 @@ dispatcher.add_handler(CHATBOT_HANDLER)
 
 dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
 
-__mod_name__ = "ᴄʜᴀᴛʙᴏx"
+__mod_name__ = "ᴄʜᴀᴛʙᴏxs"
 
 __command_list__ = ["addchat", "rmchat", "listaichats"]
 
