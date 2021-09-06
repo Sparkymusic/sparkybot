@@ -6,7 +6,7 @@ import shutil
 import cv2
 import io
 import os
-from DaisyX.config import get_str_key
+from YoneRobot.conf import get_str_key
 RemoveBG_API = get_str_key("REM_BG_API_KEY", required=False)
 
 
