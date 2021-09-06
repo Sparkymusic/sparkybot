@@ -707,7 +707,7 @@ async def _(event):
     await tbot.edit_message(chatid, msgid, f"Your new temporary email is: {email}")
 
     
-__mod_name__ = "Temp mail"
+__mod_name__ = "ᴛᴇᴍᴘ ᴍᴀɪʟ"
 __help__ ="""
  - /newemail: Registers your account for a new email address
  - /myemail: Gives your current email address
