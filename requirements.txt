@@ -72,4 +72,4 @@ glitch_this
 NumPy
 opencv-python-headless 
 aiogram
-
+Markdown>=3.3.4
