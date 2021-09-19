@@ -1,5 +1,5 @@
 
-__mod_name__ = "ᴠᴄ ᴘʟᴀʏᴇʀ"
+__mod_name__ = "ᴠɪᴅᴇᴏ🎸ᴍᴜsɪᴄ"
 
 __help__ = """
 
@@ -28,4 +28,9 @@ Admins only
 ❍/skip - play next song
 ❍/end - stop music play
 ❍/userbotjoin - invite assistant to your chat
-❍/admincache - Refresh admin list """
+❍/admincache - Refresh admin list 
+
+ᴠɪᴅᴇᴏ sᴛʀᴇᴍɪɴɢ ɪɴ ᴠᴄ
+❍/vplay (video url/live stream url) - To play video in Vc  
+❍/vstop - To stop video stream in vc """
+ 
