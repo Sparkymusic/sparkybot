@@ -4,6 +4,64 @@ from YoneRobot.modules.helper_funcs.alternate import typing_action
 from telegram import ParseMode
 from telegram.ext import run_async
 
+smallcapsfont = [
+    "ᴀ",
+    "ʙ",
+    "ᴄ",
+    "ᴅ",
+    "ᴇ",
+    "ғ",
+    "ɢ",
+    "ʜ",
+    "ɪ",
+    "ᴊ",
+    "ᴋ",
+    "ʟ",
+    "ᴍ",
+    "ɴ",
+    "ᴏ",
+    "ᴘ",
+    "ǫ",
+    "ʀ",
+    "s",
+    "ᴛ",
+    "ᴜ",
+    "ᴠ",
+    "ᴡ",
+    "x",
+    "ʏ",
+    "ᴢ",
+]
+
+comicfont = [
+    "ᗩ",
+    "ᗷ",
+    "ᑕ",
+    "ᗪ",
+    "ᗴ",
+    "ᖴ",
+    "ᘜ",
+    "ᕼ",
+    "I",
+    "ᒍ",
+    "K",
+    "ᒪ",
+    "ᗰ",
+    "ᑎ",
+    "O",
+    "ᑭ",
+    "ᑫ",
+    "ᖇ",
+    "Տ",
+    "T",
+    "ᑌ",
+    "ᐯ",
+    "ᗯ",
+    "᙭",
+    "Y",
+    "ᘔ",
+]
+
 normiefont = [
     "a",
     "b",
@@ -260,6 +318,33 @@ linedfont = [
 
 @run_async
 @typing_action
+def smallcaps(update, context):
+    args = context.args
+    message = update.effective_message
+    string = ""
+
+    if message.reply_to_message:
+        string = message.reply_to_message.text.lower().replace(" ", "  ")
+
+    if args:
+        string = "  ".join(args).lower()
+
+    if not string:
+        message.reply_text("Usage is `/smallcaps <text>`", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    for normiecharacter in string:
+        if normiecharacter in normiefont:
+            smallcapscharacter = smallcapsfont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, weebycharacter)
+
+    if message.reply_to_message:
+        message.reply_to_message.reply_text(string)
+    else:
+        message.reply_text(string)
+
+@run_async
+@typing_action
 def weebify(update, context):
     args = context.args
     message = update.effective_message
@@ -482,6 +567,7 @@ def lined(update, context):
         message.reply_text(string)
 __help__ = """
 
+ - /smallcaps <text>: smallcaps your text!
  - /weebify <text>: weebify your text!
  - /bubble <text>: bubble your text!
  - /fbubble <text>: bubble-filled your text!
@@ -494,6 +580,8 @@ __help__ = """
 """
 __mod_name__ = "sᴛʏʟᴇ ᴛᴇxᴛ"
 
+
+SMALLCAPS_HANDLER = DisableAbleCommandHandler("smallcaps", smallcaps)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
 FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
@@ -503,6 +591,7 @@ BLUE_HANDLER = DisableAbleCommandHandler("blue", blue)
 LATIN_HANDLER = DisableAbleCommandHandler("latin", latin)
 LINED_HANDLER = DisableAbleCommandHandler("lined", lined)
 
+dispatcher.add_handler(SMALLCAPS_HANDLER)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
 dispatcher.add_handler(FBUBBLE_HANDLER)
@@ -512,6 +601,7 @@ dispatcher.add_handler(BLUE_HANDLER)
 dispatcher.add_handler(LATIN_HANDLER)
 dispatcher.add_handler(LINED_HANDLER)
 
+__command_list__ = ["smallcaps"]
 __command_list__ = ["weebify"]
 __command_list__ = ["bubble"]
 __command_list__ = ["fbubble"]
@@ -520,6 +610,7 @@ __command_list__ = ["fsquare"]
 __command_list__ = ["blue"]
 __command_list__ = ["latin"]
 __command_list__ = ["lined"]
+__handlers__ = [SMALLCAPS_HANDLER]
 __handlers__ = [WEEBIFY_HANDLER]
 __handlers__ = [BUBBLE_HANDLER]
 __handlers__ = [FBUBBLE_HANDLER]
