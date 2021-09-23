@@ -62,6 +62,35 @@ comicfont = [
     "ᘔ",
 ]
 
+underlinefont = [
+    "a͟",
+    "b͟",
+    "c͟",
+    "d͟",
+    "e͟",
+    "f͟",
+    "g͟",
+    "h͟",
+    "i͟",
+    "j͟",
+    "k͟",
+    "l͟",
+    "m͟",
+    "n͟",
+    "o͟",
+    "p͟",
+    "q͟",
+    "r͟",
+    "s͟",
+    "t͟",
+    "u͟",
+    "v͟",
+    "w͟",
+    "x͟",
+    "y͟",
+    "z͟",
+]
+
 normiefont = [
     "a",
     "b",
@@ -336,13 +365,67 @@ def smallcaps(update, context):
     for normiecharacter in string:
         if normiecharacter in normiefont:
             smallcapscharacter = smallcapsfont[normiefont.index(normiecharacter)]
-            string = string.replace(normiecharacter, weebycharacter)
+            string = string.replace(normiecharacter, smallcapscharacter)
 
     if message.reply_to_message:
         message.reply_to_message.reply_text(string)
     else:
         message.reply_text(string)
 
+@run_async
+@typing_action
+def comic(update, context):
+    args = context.args
+    message = update.effective_message
+    string = ""
+
+    if message.reply_to_message:
+        string = message.reply_to_message.text.lower().replace(" ", "  ")
+
+    if args:
+        string = "  ".join(args).lower()
+
+    if not string:
+        message.reply_text("Usage is `/comic <text>`", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    for normiecharacter in string:
+        if normiecharacter in normiefont:
+            comiccharacter = comicfont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, comiccharacter)
+
+    if message.reply_to_message:
+        message.reply_to_message.reply_text(string)
+    else:
+        message.reply_text(string)
+        
+@run_async
+@typing_action
+def underline(update, context):
+    args = context.args
+    message = update.effective_message
+    string = ""
+
+    if message.reply_to_message:
+        string = message.reply_to_message.text.lower().replace(" ", "  ")
+
+    if args:
+        string = "  ".join(args).lower()
+
+    if not string:
+        message.reply_text("Usage is `/weebify <text>`", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    for normiecharacter in string:
+        if normiecharacter in normiefont:
+            underlinecharacter = underlinefont[normiefont.index(normiecharacter)]
+            string = string.replace(normiecharacter, underlinecharacter)
+
+    if message.reply_to_message:
+        message.reply_to_message.reply_text(string)
+    else:
+        message.reply_text(string)
+        
 @run_async
 @typing_action
 def weebify(update, context):
@@ -567,7 +650,9 @@ def lined(update, context):
         message.reply_text(string)
 __help__ = """
 
+ - /comic <text>: comic your text!
  - /smallcaps <text>: smallcaps your text!
+ - /undeeline <text>: underline your text!
  - /weebify <text>: weebify your text!
  - /bubble <text>: bubble your text!
  - /fbubble <text>: bubble-filled your text!
@@ -582,6 +667,8 @@ __mod_name__ = "sᴛʏʟᴇ ᴛᴇxᴛ"
 
 
 SMALLCAPS_HANDLER = DisableAbleCommandHandler("smallcaps", smallcaps)
+COMIC_HANDLER = DisableAbleCommandHandler("comic", comic)
+UNDERLINE_HANDLER = DisableAbleCommandHandler("underline", underline)
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
 FBUBBLE_HANDLER = DisableAbleCommandHandler("fbubble", fbubble)
@@ -592,6 +679,8 @@ LATIN_HANDLER = DisableAbleCommandHandler("latin", latin)
 LINED_HANDLER = DisableAbleCommandHandler("lined", lined)
 
 dispatcher.add_handler(SMALLCAPS_HANDLER)
+dispatcher.add_handler(COMIC_HANDLER)
+dispatcher.add_handler(UNDERLINE_HANDLER)
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(BUBBLE_HANDLER)
 dispatcher.add_handler(FBUBBLE_HANDLER)
@@ -602,6 +691,8 @@ dispatcher.add_handler(LATIN_HANDLER)
 dispatcher.add_handler(LINED_HANDLER)
 
 __command_list__ = ["smallcaps"]
+__command_list__ = ["comic"]
+__command_list__ = ["underline"]
 __command_list__ = ["weebify"]
 __command_list__ = ["bubble"]
 __command_list__ = ["fbubble"]
@@ -610,7 +701,11 @@ __command_list__ = ["fsquare"]
 __command_list__ = ["blue"]
 __command_list__ = ["latin"]
 __command_list__ = ["lined"]
+
+
 __handlers__ = [SMALLCAPS_HANDLER]
+__handlers__ = [COMIC_HANDLER]
+__handlers__ = [UNDERLINE_HANDLER]
 __handlers__ = [WEEBIFY_HANDLER]
 __handlers__ = [BUBBLE_HANDLER]
 __handlers__ = [FBUBBLE_HANDLER]
