@@ -54,7 +54,7 @@ async def mentionall(event):
         
   if mode == "text_on_reply":
     usrnum = 0
-    usrtxt = ""
+    usrtxt = " {mention}"
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
@@ -64,5 +64,4 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
         
-print(">> BOT STARTED <<")
-client.run_until_disconnected()
+
