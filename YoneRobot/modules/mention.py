@@ -47,19 +47,19 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if usrnum == 5:
-        await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
+        await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg} ʙʏ {mention} ")
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
         
   if mode == "text_on_reply":
     usrnum = 0
-    usrtxt = " {mention}"
+    usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if usrnum == 5:
-        await client.send_message(event.chat_id, usrtxt, reply_to=msg)
+        await client.send_message(event.chat_id, usrtxt, reply_to=msg, reply_to=mention)
         await asyncio.sleep(2)
         usrnum = 0
         usrtxt = ""
