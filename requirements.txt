@@ -39,7 +39,7 @@ ujson
 pretty_errors
 tgCrypto>=1.2.2
 Pyrogram==1.1.13
-youtube-dl
+
 youtube_search_python
 youtube_search
 asyncio
