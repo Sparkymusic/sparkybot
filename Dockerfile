@@ -69,7 +69,7 @@ RUN git clone https://github.com/Sparkymusic/YoneRobot /root/YoneRobot
 WORKDIR /root/YoneRobot
 
 #Copy config file to /root/YoneRobot/YoneRobot
-COPY ./YoneRobot/sample_config.py ./YoneRobot/config.py* /root/YoneRobot/YoneRobot/
+COPY ./YoneRobot/config.py* /root/YoneRobot/YoneRobot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
