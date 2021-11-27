@@ -71,5 +71,5 @@ glitch_this
 NumPy
 opencv-python-headless 
 aiogram 
-
+tqdm==4.62.3
 Markdown>=3.3.4
