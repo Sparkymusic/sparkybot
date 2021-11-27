@@ -70,5 +70,6 @@ loguru
 glitch_this
 NumPy
 opencv-python-headless 
-aiogram
+aiogram 
+
 Markdown>=3.3.4
