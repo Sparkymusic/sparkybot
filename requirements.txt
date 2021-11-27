@@ -26,7 +26,7 @@ speedtest-cli
 coffeehouse==2.2.4
 regex
 bleach
-
+tqdm==4.62.3
 wikipedia
 telethon==1.23.0
 telegraph
@@ -71,5 +71,5 @@ glitch_this
 NumPy
 opencv-python-headless 
 aiogram 
-tqdm==4.62.3
+
 Markdown>=3.3.4
