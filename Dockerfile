@@ -62,7 +62,7 @@ RUN apt update && apt upgrade -y && \
     && rm -rf /var/lib/apt/lists /var/cache/apt/archives /tmp
 
 # Pypi package Repo upgrade
-RUN pip3 install --upgrade pip setuptools
+RUN pip3 install pip setuptools
 
 # Copy Python Requirements to /root/YoneRobot
 RUN git clone https://github.com/Sparkymusic/YoneRobot /root/YoneRobot
